@@ -1,0 +1,28 @@
+@sizes: {
+	s: @font-size-s;
+	m: @font-size-m;
+	l: @font-size-l;
+	xl: @font-size-xl;
+	xxl: @font-size-xxl;
+};
+
+@weights: {
+	light: @font-weight-light;
+	regular: @font-weight-regular;
+	medium: @font-weight-medium;
+	bold: @font-weight-bold;
+}
+
+.classHelper(@sizeName, @size) {
+	each(@weights, {
+		.text-@{sizeName}-@{key} {
+			font-family: @font-family;
+			font-weight: @value;
+			font-size: @size;
+		}
+	})
+}
+
+each(@sizes, {
+	.classHelper(@key, @value);
+})
