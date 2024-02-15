@@ -7,8 +7,8 @@ const pages = import.meta.glob('../pages/*.vue');
 const routes = Object.keys(pages).map((path) => {
 	const name = path
 		.match(/\.\/pages(.*)\.vue$/)[1]
-		.toLowerCase()
-		.replace('v-', '');
+		.replace('/V', '/')
+		.toLowerCase();
 
 	return {
 		path: name === '/login' ? '/' : name,
