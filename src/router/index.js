@@ -11,7 +11,7 @@ const routes = Object.keys(pages).map((path) => {
 		.toLowerCase();
 
 	return {
-		path: name === '/login' ? '/' : name,
+		path: name === '/landing' ? '/' : name,
 		component: pages[path],
 	};
 });

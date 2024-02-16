@@ -44,11 +44,11 @@ export default defineConfig({
 					'border-radius-full': '100%',
 
 					// Elevation Levels
-					'elevation-low': '0px -2px 4px 0px rgba(0, 0, 0, 0.08)',
-					'elevation-medium': '0px -4px 8px 0px rgba(0, 0, 0, 0.08)',
-					'elevation-high': '0px -8px 16px 0px rgba(0, 0, 0, 0.08)',
-					'elevation-right': '4px 0px 8px 0px rgba(0, 0, 0, 0.08)',
-					'elevation-top': '0px 0px 16px 4px rgba(0, 0, 0, 0.08)',
+					'elevation-low': '0px 6px 8px -4px var(--color-elevation)',
+					'elevation-medium': '0px 6px 8px -2px var(--color-elevation)',
+					'elevation-high': '0px 6px 8px 0px var(--color-elevation)',
+					'elevation-right': '4px 0px 8px 0px var(--color-elevation)',
+					'elevation-top': '0px 0px 16px 4px var(--color-elevation)',
 
 					// Transition default values
 					'transition-delay': '250ms',
