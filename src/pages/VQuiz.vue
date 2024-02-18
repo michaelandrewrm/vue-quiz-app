@@ -1,13 +1,12 @@
-<script setup></script>
+<script setup>
+import LQuiz from '@/layouts/LQuiz.vue';
+import WQuiz from '@/widgets/WQuiz.vue';
+</script>
 
 <template>
-	<div class="quiz"></div>
+	<LQuiz>
+		<WQuiz></WQuiz>
+	</LQuiz>
 </template>
 
-<style lang="less" scoped>
-.quiz {
-	position: relative;
-	width: 100%;
-	height: 100%;
-}
-</style>
+<style lang="less" scoped></style>

@@ -9,9 +9,10 @@ const props = defineProps({
 	neutral: Boolean,
 	outlined: Boolean,
 	loading: Boolean,
-	small: Boolean,
+	mini: Boolean,
 	large: Boolean,
 	fullWidth: Boolean,
+	text: Boolean,
 });
 
 const classes = computed(() => ({
@@ -21,17 +22,15 @@ const classes = computed(() => ({
 	'--neutral': props.neutral,
 	'--outlined': props.outlined,
 	'--loading': props.loading,
-	'--small': props.small,
+	'--mini': props.mini,
 	'--large': props.large,
-	'--full-width': props.fullWidth,
-	'text-s-medium': props.small,
-	'text-l-medium': props.large,
+	'--text': props.text,
 }));
 </script>
 <template>
 	<button class="button" :class="classes" v-bind="$attrs">
-		<CLoadingDots v-if="props.loading"></CLoadingDots>
-		<slot v-else />
+		<CLoadingDots v-if="props.loading" />
+		<slot></slot>
 	</button>
 </template>
 <style lang="less" scoped>
@@ -42,19 +41,22 @@ const classes = computed(() => ({
 	appearance: none;
 	display: flex;
 	position: relative;
-	min-height: 40px;
+	min-width: 64px;
+	min-height: 48px;
 	align-items: center;
 	justify-content: center;
 	margin: @spacing-none;
-	padding: @spacing-s @spacing-l;
-	border-width: @border-m;
+	padding: @spacing-m @spacing-xl;
+	border-width: @border-s;
 	border-style: solid;
 	border-color: transparent;
 	border-radius: @border-radius-l;
 	box-shadow: @elevation-medium;
 	font-weight: @font-weight-medium;
-	font-size: @font-size-m;
+	font-size: @font-size-l;
+	overflow: hidden;
 }
+
 .button:disabled {
 	cursor: not-allowed;
 	color: var(--color-disabled-content);
@@ -67,54 +69,79 @@ const classes = computed(() => ({
 	border-color: var(--color-disabled-content);
 }
 
-.button:not(:disabled):active {
+.button:not(:disabled):not(.--text):active {
 	box-shadow: @elevation-low;
 }
 
-.button.--small {
+.button.--outlined:not(:disabled):active {
+	box-shadow: @elevation-low;
+}
+
+.button.--mini {
 	min-height: 32px;
 	padding: @spacing-xs @spacing-m;
+	font-weight: @font-weight-medium;
+	font-size: @font-size-m;
 }
 
 .button.--large {
-	min-height: 48px;
-	padding: @spacing-m @spacing-xl;
-}
-
-.button.--full-width {
 	width: 100%;
 }
 
-.button:not(:disabled).--primary:not(.--outlined) {
+.button:not(:disabled):not(.--outlined):not(.--text).--primary {
 	color: var(--color-primary-content);
 	background: var(--color-primary);
 	border-color: var(--color-primary);
+
+	&:hover {
+		border-color: var(--color-primary-dark);
+		background: var(--color-primary-dark);
+	}
 }
 
-.button:not(:disabled).--secondary:not(.--outlined) {
+.button:not(:disabled):not(.--outlined):not(.--text).--secondary {
 	color: var(--color-secondary-content);
 	background: var(--color-secondary);
 	border-color: var(--color-secondary);
+
+	&:hover {
+		border-color: var(--color-secondary-dark);
+		background: var(--color-secondary-dark);
+	}
 }
 
-.button:not(:disabled).--accent:not(.--outlined) {
+.button:not(:disabled):not(.--outlined):not(.--text).--accent {
 	color: var(--color-accent-content);
 	background: var(--color-accent);
 	border-color: var(--color-accent);
+
+	&:hover {
+		border-color: var(--color-accent-dark);
+		background: var(--color-accent-dark);
+	}
 }
 
-.button:not(:disabled).--neutral:not(.--outlined) {
+.button:not(:disabled):not(.--outlined):not(.--text).--neutral {
 	color: var(--color-neutral-content);
 	background: var(--color-neutral);
 	border-color: var(--color-neutral);
+
+	&:hover {
+		border-color: var(--color-neutral-dark);
+		background: var(--color-neutral-dark);
+	}
 }
 
-.button:not(:disabled).--outlined {
+.button:not(:disabled):not(.--text).--outlined {
 	color: var(--color-base-content);
 	background: var(--color-base);
-	border-width: @border-m;
+	border-width: @border-s;
 	border-style: solid;
 	border-color: var(--color-base-content);
+
+	&:hover {
+		background: var(--color-base-dark);
+	}
 
 	&.--primary {
 		border-color: var(--color-primary);
@@ -131,5 +158,13 @@ const classes = computed(() => ({
 	&.--neutral {
 		border-color: var(--color-neutral);
 	}
+}
+
+.button.--text {
+	color: var(--color-base-content);
+	border-color: transparent;
+	background: transparent;
+	text-decoration: underline;
+	box-shadow: none;
 }
 </style>

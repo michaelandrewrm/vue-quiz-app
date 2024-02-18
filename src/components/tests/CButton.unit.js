@@ -1,6 +1,6 @@
 import { describe, it, beforeEach, expect } from 'vitest';
 import { shallowMount } from '@vue/test-utils';
-import Component from '../CButton.vue';
+import Component from '@/components/CButton.vue';
 
 describe('c-button.vue', () => {
 	let wp;

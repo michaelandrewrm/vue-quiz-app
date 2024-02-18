@@ -8,8 +8,14 @@
 <style lang="less" scoped>
 .loading-dots {
 	display: flex;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
 	padding: @spacing-xs;
 	gap: @spacing-xs;
+	background: inherit;
 }
 
 .dot {

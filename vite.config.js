@@ -1,10 +1,16 @@
 import { defineConfig } from 'vite';
+import { fileURLToPath } from 'node:url';
 import vue from '@vitejs/plugin-vue';
 
 // https://vitejs.dev/config/
 export default defineConfig({
 	base: '/',
 	plugins: [vue()],
+	resolve: {
+		alias: {
+			'@': fileURLToPath(new URL('./src', import.meta.url)),
+		},
+	},
 	server: {
 		host: '0.0.0.0',
 	},
@@ -44,11 +50,11 @@ export default defineConfig({
 					'border-radius-full': '100%',
 
 					// Elevation Levels
-					'elevation-low': '0px 6px 8px -4px var(--color-elevation)',
-					'elevation-medium': '0px 6px 8px -2px var(--color-elevation)',
-					'elevation-high': '0px 6px 8px 0px var(--color-elevation)',
-					'elevation-right': '4px 0px 8px 0px var(--color-elevation)',
-					'elevation-top': '0px 0px 16px 4px var(--color-elevation)',
+					'elevation-low': '0px 6px 8px -4px rgba(var(--color-elevation), 0.25)',
+					'elevation-medium': '0px 6px 8px -2px rgba(var(--color-elevation), 0.25)',
+					'elevation-high': '0px 6px 8px 0px rgba(var(--color-elevation), 0.25)',
+					'elevation-right': '4px 0px 8px 0px rgba(var(--color-elevation), 0.25)',
+					'elevation-top': '0px 0px 16px 4px rgba(var(--color-elevation), 0.25)',
 
 					// Transition default values
 					'transition-delay': '250ms',

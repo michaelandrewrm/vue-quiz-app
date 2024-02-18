@@ -1,0 +1,105 @@
+[
+	{
+		"description": "What is the purpose of the let keyword in JavaScript?",
+		"answers": [
+			{ "id": "1", "opt": "To declare a constant variable" },
+			{ "id": "2", "opt": "To declare a block-scoped variable" },
+			{ "id": "3", "opt": "To declare a global variable" },
+			{ "id": "4", "opt": "To declare a function-scoped variable" }
+		],
+		"correctAnswer": "2"
+	},
+	{
+		"description": "How do you check if a variable is of type 'string' in JavaScript?",
+		"answers": [
+			{ "id": "1", "otp": "typeof variable === 'text'" },
+			{ "id": "2", "otp": "variable.type === 'string'" },
+			{ "id": "3", "otp": "typeof variable === 'string'" },
+			{ "id": "4", "otp": "variable.isString()" }
+		],
+		"correctAnswer": "3"
+	},
+	{
+		"description": "What does the `querySelector` method in JavaScript do?",
+		"answers": [
+			{ "id": "1", "otp": "Finds the first element with a specific class" },
+			{ "id": "2", "otp": "Retrieves the value of a CSS property" },
+			{ "id": "3", "otp": "Selects all elements with a given tag name" },
+			{ "id": "4", "otp": "Retrieves the value of a form input" }
+		],
+		"correctAnswer": "1"
+	},
+	{
+		"description": "What is the purpose of the `addEventListener` method in JavaScript?",
+		"answers": [
+			{ "id": "1", "opt": "To add a style to an HTML element" },
+			{ "id": "2", "opt": "To attach an event handler function to an HTML element" },
+			{ "id": "3", "opt": "To create a new HTML element" },
+			{ "id": "4", "opt": "To remove an HTML element from the DOM" }
+		],
+		"correctAnswer": "2"
+	},
+	{
+		"description": "How can you prevent the default behavior of an event in JavaScript?",
+		"answers": [
+			{ "id": "1", "opt": "event.stop()" },
+			{ "id": "2", "opt": "event.cancelDefault()" },
+			{ "id": "3", "opt": "event.preventDefault()" },
+			{ "id": "4", "opt": "event.prevent()" }
+		],
+		"correctAnswer": "3"
+	},
+	{
+		"description": "What is the purpose of the `JSON.stringify` method in JavaScript?",
+		"answers": [
+			{ "id": "1", "opt": "Parses a JSON string into an object" },
+			{ "id": "2", "opt": "Converts a JavaScript object to a JSON string" },
+			{ "id": "3", "opt": "Checks if a variable is a JSON object" },
+			{ "id": "4", "opt": "Adds a property to a JSON object" }
+		],
+		"correctAnswer": "2"
+	},
+	{
+		"description": "How do you declare a function in JavaScript?",
+		"answers": [
+			{ "id": "1", "opt": "function myFunction() {}" },
+			{ "id": "2", "opt": "var myFunction = function() {}" },
+			{ "id": "3", "opt": "const myFunction = () => {}" },
+			{ "id": "4", "opt": "All of the above" }
+		],
+		"correctAnswer": "4"
+	},
+	{
+		"description": "What does the `this` keyword refer to in JavaScript?",
+		"answers": [
+			{ "id": "1", "opt": "The current function" },
+			{ "id": "2", "opt": "The global object" },
+			{ "id": "3", "opt": "The calling object" },
+			{ "id": "4", "opt": "The parent function" }
+		],
+		"correctAnswer": "3"
+	},
+	{
+		"description": "What is the purpose of the `map` function in JavaScript?",
+		"answers": [
+			{
+				"id": "1",
+				"opt": "To create a new array with the results of calling a provided function on every element in the array"
+			},
+			{ "id": "2", "opt": "To remove elements from an array" },
+			{ "id": "3", "opt": "To check if all elements in an array pass a test" },
+			{ "id": "4", "opt": "To concatenate two arrays" }
+		],
+		"correctAnswer": "1"
+	},
+	{
+		"description": "How do you declare a constant variable in JavaScript?",
+		"answers": [
+			{ "id": "1", "opt": "const myVar = 10;" },
+			{ "id": "2", "opt": "let myVar = 10;" },
+			{ "id": "3", "opt": "var myVar = 10;" },
+			{ "id": "4", "opt": "constant myVar = 10;" }
+		],
+		"correctAnswer": "10"
+	}
+]
