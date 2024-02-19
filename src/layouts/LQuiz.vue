@@ -2,7 +2,7 @@
 
 <template>
 	<div class="layout-quiz">
-		<div class="layout-quiz__popup">
+		<div v-if="$slots.popup" class="layout-quiz__popup">
 			<slot name="popup"></slot>
 		</div>
 

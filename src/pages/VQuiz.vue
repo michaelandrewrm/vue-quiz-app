@@ -3,22 +3,24 @@ import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import LQuiz from '@/layouts/LQuiz.vue';
 import WQuiz from '@/widgets/WQuiz.vue';
-import MScore from '../modals/MScore.vue';
+import MScore from '@/modals/MScore.vue';
 
 const router = useRouter();
 
 const score = ref(null);
+const showScoreModal = ref(null);
 
 const onScore = (data) => {
 	if (data) {
 		score.value = data;
+		showScoreModal.value = true;
 	}
 };
 </script>
 
 <template>
 	<LQuiz>
-		<template v-slot:popup>
+		<template v-if="showScoreModal" v-slot:popup>
 			<div class="quiz-modal">
 				<div class="quiz-modal__overlay"></div>
 				<div class="quiz-modal__container">

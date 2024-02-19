@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onServerPrefetch, onMounted, computed, defineEmits } from 'vue';
+import { ref, onServerPrefetch, onMounted, computed } from 'vue';
 import { useQuizStore } from '@/store/quiz';
 import { useSessionStore } from '@/store/session';
 import httpRequest from '@/plugins/httpRequest';

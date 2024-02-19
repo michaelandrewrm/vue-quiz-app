@@ -36,9 +36,9 @@ export default {
 			}
 		});
 
-		const usersScores = users.map(({ score: sco }) => sco);
+		const usersScores = users.map(({ score }) => score).filter((score) => score);
 		const average = usersScores.reduce((sum, sco) => sum + sco, 0) / usersScores.length;
-		const percentage = (score / average) * 100;
+		const percentage = ((score / average) * 100).toFixed(0);
 
 		currentUser.set({ score });
 

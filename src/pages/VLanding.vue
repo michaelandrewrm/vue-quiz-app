@@ -62,9 +62,9 @@ onMounted(() => {
 		throttle(($e) => {
 			if ($e) {
 				const top = $e.target.scrollTop;
-				const three = $e.target.querySelector('.--three');
-				const two = $e.target.querySelector('.--two');
-				const one = $e.target.querySelector('.--one');
+				const three = $e.target.querySelector('.parallax__three');
+				const two = $e.target.querySelector('.parallax__two');
+				const one = $e.target.querySelector('.parallax__one');
 
 				three.style.transform = `translateY(${-(top * 0.3)}px)`;
 				two.style.transform = `translateY(${-(top * 0.2)}px)`;
@@ -77,30 +77,34 @@ onMounted(() => {
 
 <template>
 	<div class="landing" ref="page">
-		<div class="overlay">
-			<div class="parallax">
-				<div class="parallax --three"></div>
-				<div class="parallax --two"></div>
-				<div class="parallax --one"></div>
+		<header class="landing__header">
+			<div class="overlay">
+				<div class="parallax">
+					<div class="parallax__header">
+						<div class="parallax__logo">
+							<span class="parallax__bg"></span>
+							<h1 class="parallax__title">
+								{{ 'Fast Quiz' }}
+							</h1>
+						</div>
+					</div>
+					<div class="parallax__three"></div>
+					<div class="parallax__two"></div>
+					<div class="parallax__one"></div>
+				</div>
 			</div>
-		</div>
+		</header>
 
-		<section class="section intro">
-			<header class="intro__header">
-				<span class="intro__bg"></span>
-				<h1 class="intro__title">
-					{{ 'Fast Quiz' }}
-				</h1>
-			</header>
-			<form class="user-data" @submit.prevent="onSubmit">
-				<fieldset class="user-data__fieldset">
-					<div class="user-data__form-group">
-						<p class="user-data__legend">
+		<main class="main-section">
+			<form class="user-form" @submit.prevent="onSubmit">
+				<fieldset class="user-form__fieldset">
+					<div class="user-form__form-group">
+						<p class="user-form__legend text-l-regular">
 							{{ currentLegendText }}
 						</p>
 					</div>
 
-					<div v-if="!isRegistered" class="user-data__form-group">
+					<div v-if="!isRegistered" class="user-form__form-group">
 						<CInput
 							v-model="sessionStore.fullname"
 							type="text"
@@ -112,7 +116,7 @@ onMounted(() => {
 						></CInput>
 					</div>
 
-					<div class="user-data__form-group">
+					<div class="user-form__form-group">
 						<CInput
 							v-model="sessionStore.email"
 							type="email"
@@ -124,7 +128,7 @@ onMounted(() => {
 						></CInput>
 					</div>
 
-					<div class="user-data__form-group">
+					<div class="user-form__form-group">
 						<CButton
 							primary
 							large
@@ -137,7 +141,26 @@ onMounted(() => {
 					</div>
 				</fieldset>
 			</form>
-		</section>
+
+			<article class="article">
+				<p class="article__paragraph text-l-regular">
+					{{
+						'Welcome to the JavaScript Challenge! This quiz is specifically designed to test your knowledge of JavaScript, the versatile programming language that powers the dynamic aspects of web development. Get ready to dive into the world of functions, objects, and syntax as you tackle 10 questions crafted to assess your understanding of JavaScript concepts.'
+					}}
+				</p>
+				<p class="article__paragraph text-l-regular">
+					{{
+						'Each question will present you with four answer options, but only one of them is the correct JavaScript solution.'
+					}}
+				</p>
+				<p class="article__paragraph text-l-regular">
+					{{ "After completing the quiz, you'll see your result compare to others quizzers" }}
+				</p>
+				<p class="article__paragraph text-l-regular">
+					{{ 'Best of luck!!!' }}
+				</p>
+			</article>
+		</main>
 	</div>
 </template>
 
@@ -147,8 +170,18 @@ onMounted(() => {
 	position: relative;
 	width: 100%;
 	height: 100%;
+	background: var(--color-base);
 	overflow-x: hidden;
 	overflow-y: auto;
+}
+
+.landing__header {
+	display: flex;
+	position: relative;
+	height: 80%;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
 }
 
 .overlay {
@@ -160,81 +193,72 @@ onMounted(() => {
 }
 
 .parallax {
-	position: absolute;
-	bottom: 0;
-	left: 0;
+	display: flex;
+	position: relative;
 	width: 100%;
 	height: 100%;
-	background-repeat: no-repeat;
-	background-size: 100%;
-	background-position: bottom;
 	will-change: transform;
 	transition: transform 200ms ease;
-
-	& .--one {
-		background-image: url(@/assets/images/wave-2.svg);
-		filter: drop-shadow(0px 5px 15px black);
-		z-index: 3;
-	}
-
-	& .--two {
-		background-image: url(@/assets/images/wave-3.svg);
-		filter: drop-shadow(0px 5px 15px black);
-		z-index: 2;
-	}
-
-	& .--three {
-		background-image: url(@/assets/images/wave-1.svg);
-		filter: drop-shadow(0px 5px 15px black);
-		z-index: 1;
-	}
-
-	& .--header {
-		z-index: 3;
-	}
 }
 
-@media (max-width: @tablet) {
-	.parallax {
-		& .--one,
-		& .--two,
-		& .--three {
-			background-size: 200%;
-		}
-	}
-}
-
-.section {
-	display: flex;
-	position: relative;
+.parallax__one,
+.parallax__two,
+.parallax__three {
+	position: absolute;
 	width: 100%;
 	height: 100%;
+	bottom: 0;
+	left: 0;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: 0% 50%;
+	will-change: transform;
+	transition: transform 200ms ease;
 }
 
-.intro {
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	z-index: 4;
+.parallax__one {
+	background-image: url(@/assets/images/wave-2.svg);
+	filter: drop-shadow(0px 5px 15px black);
+	z-index: 3;
 }
 
-.intro__header {
+.parallax__two {
+	background-image: url(@/assets/images/wave-3.svg);
+	filter: drop-shadow(0px 5px 15px black);
+	z-index: 2;
+}
+
+.parallax__three {
+	background-image: url(@/assets/images/wave-1.svg);
+	filter: drop-shadow(0px 5px 15px black);
+	z-index: 1;
+}
+
+.parallax__header {
 	display: flex;
-	position: relative;
-	width: 300px;
-	height: 200px;
-	align-items: center;
+	width: 100%;
+	height: 100%;
 	justify-content: center;
-	margin-bottom: @spacing-m;
+	align-items: flex-start;
+	padding: @spacing-l;
+	z-index: 3;
 }
 
-.intro__title {
+.parallax__logo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.parallax__title {
+	color: var(--color-info-content);
 	position: absolute;
 	font-weight: @font-weight-bold;
 	font-size: 64px;
+	text-shadow: 2px 2px 2px var(--color-base-content);
 }
 
-.intro__bg {
+.parallax__bg {
 	position: relative;
 	width: 300px;
 	height: 200px;
@@ -244,17 +268,36 @@ onMounted(() => {
 	background-size: cover;
 }
 
-.user-data {
+@media (max-width: @tablet) {
+	.parallax__one,
+	.parallax__two,
+	.parallax__three {
+		background-size: 200%;
+	}
+}
+
+.main-section {
+	display: flex;
+	position: relative;
+	min-height: 100%;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	margin-top: -100px;
+	background: var(--color-info);
+}
+
+.user-form {
 	display: flex;
 	position: relative;
 	width: 100%;
 	max-width: 300px;
 	padding: @spacing-m;
-	background: rgba(255, 255, 255, 0.5);
 	border-radius: @border-radius-l;
+	margin-top: -100px;
 }
 
-.user-data__fieldset {
+.user-form__fieldset {
 	display: grid;
 	position: relative;
 	width: 100%;
@@ -262,26 +305,30 @@ onMounted(() => {
 	justify-content: center;
 }
 
-.user-data__form-group {
+.user-form__legend {
+	color: var(--color-info-content);
+	line-height: 1.5;
+}
+
+.user-form__form-group {
 	display: flex;
 	position: relative;
 	justify-content: center;
 	padding: @spacing-m @spacing-none;
 }
 
-.scores {
-	background: var(--color-base);
+.article {
+	color: var(--color-info-content);
+	display: flex;
+	position: relative;
+	width: 100%;
+	max-width: 800px;
+	flex-direction: column;
+	padding: @spacing-l;
 }
 
-.scores-layer {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-repeat: no-repeat;
-	background-size: 100%;
-	background-position: top;
-	background-image: url(@/assets/images/wave-1.svg);
+.article__paragraph {
+	line-height: 1.5;
+	margin-bottom: @spacing-l;
 }
 </style>
