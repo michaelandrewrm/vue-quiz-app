@@ -1,36 +1,56 @@
 <script setup></script>
 
 <template>
-	<div class="quiz">
-		<div v-if="$slots.progress" class="quiz__progress">
+	<div class="layout-quiz">
+		<div v-if="$slots.progress" class="layout-quiz__progress">
 			<slot name="progress"></slot>
 		</div>
 
-		<section class="quiz__container">
-			<slot></slot>
+		<section class="layout-quiz__container">
+			<slot name="default"></slot>
 		</section>
 	</div>
 </template>
 
 <style lang="less" scoped>
-.quiz {
-	position: relative;
-	width: 100%;
-	height: 100%;
-	padding: @spacing-4xl @spacing-3xl;
-}
-
-.quiz__container {
+.layout-quiz {
 	display: flex;
 	position: relative;
 	width: 100%;
 	height: 100%;
 	flex-direction: column;
-	align-items: flex-start;
-	padding: @spacing-m;
-	border-radius: @border-radius-l;
+	padding: @spacing-none;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(to right, #7380ff, #1f2937);
+}
+
+.layout-quiz__container {
+	display: flex;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	padding: @spacing-xl;
+	border-radius: @border-radius-none;
+	transform: translate(0%, 0%);
 	background: var(--color-base-dark);
 	box-shadow: @elevation-medium;
-	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+@media (min-width: @tablet) {
+	.layout-quiz {
+		padding: @spacing-4xl @spacing-3xl;
+	}
+
+	.layout-quiz__container {
+		position: relative;
+		max-width: 800px;
+		max-height: 600px;
+		border-radius: @border-radius-l;
+	}
 }
 </style>

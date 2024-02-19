@@ -4,13 +4,12 @@ import { computed } from 'vue';
 const model = defineModel();
 
 const props = defineProps({
-	value: [String, Number],
-	description: String,
+	value: Object,
 	checked: Boolean,
 });
 
 const classes = computed(() => ({
-	'--selected': model.value === props.value,
+	'--selected': model.value?.id === props.value?.id,
 }));
 </script>
 
@@ -26,10 +25,10 @@ const classes = computed(() => ({
 			:checked="checked"
 		/>
 		<span class="quiz-answer__icon text-l-medium" tabindex="-1">
-			{{ value }}
+			{{ value.id }}
 		</span>
-		<span v-if="description" class="quiz-answer__desc text-l-regular">
-			{{ description }}
+		<span v-if="value && value.opt" class="quiz-answer__desc text-l-regular">
+			{{ value.opt }}
 		</span>
 	</label>
 </template>
@@ -45,6 +44,7 @@ const classes = computed(() => ({
 	appearance: none;
 	display: flex;
 	position: relative;
+	width: 100%;
 	border: @border-none;
 	margin: @spacing-none;
 	padding: @spacing-m @spacing-l;
@@ -59,6 +59,10 @@ const classes = computed(() => ({
 
 .quiz-answer.--selected {
 	background: var(--color-primary);
+}
+
+.quiz-answer.--selected:hover {
+	background: var(--color-primary-dark);
 }
 
 .quiz-answer__radio:focus,

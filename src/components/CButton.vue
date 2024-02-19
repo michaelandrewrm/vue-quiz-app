@@ -35,6 +35,9 @@ const classes = computed(() => ({
 </template>
 <style lang="less" scoped>
 .button {
+	-webkit-tap-highlight-color: transparent;
+	-webkit-touch-callout: none;
+	touch-action: none;
 	cursor: pointer;
 	user-select: none;
 	outline: none;

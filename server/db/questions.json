@@ -1,5 +1,6 @@
 [
 	{
+		"id": "1",
 		"description": "What is the purpose of the let keyword in JavaScript?",
 		"answers": [
 			{ "id": "1", "opt": "To declare a constant variable" },
@@ -10,27 +11,30 @@
 		"correctAnswer": "2"
 	},
 	{
+		"id": "2",
 		"description": "How do you check if a variable is of type 'string' in JavaScript?",
 		"answers": [
-			{ "id": "1", "otp": "typeof variable === 'text'" },
-			{ "id": "2", "otp": "variable.type === 'string'" },
-			{ "id": "3", "otp": "typeof variable === 'string'" },
-			{ "id": "4", "otp": "variable.isString()" }
+			{ "id": "1", "opt": "typeof variable === 'text'" },
+			{ "id": "2", "opt": "variable.type === 'string'" },
+			{ "id": "3", "opt": "typeof variable === 'string'" },
+			{ "id": "4", "opt": "variable.isString()" }
 		],
 		"correctAnswer": "3"
 	},
 	{
-		"description": "What does the `querySelector` method in JavaScript do?",
+		"id": "3",
+		"description": "What does the querySelector method in JavaScript do?",
 		"answers": [
-			{ "id": "1", "otp": "Finds the first element with a specific class" },
-			{ "id": "2", "otp": "Retrieves the value of a CSS property" },
-			{ "id": "3", "otp": "Selects all elements with a given tag name" },
-			{ "id": "4", "otp": "Retrieves the value of a form input" }
+			{ "id": "1", "opt": "Finds the first element with a specific class" },
+			{ "id": "2", "opt": "Retrieves the value of a CSS property" },
+			{ "id": "3", "opt": "Selects all elements with a given tag name" },
+			{ "id": "4", "opt": "Retrieves the value of a form input" }
 		],
 		"correctAnswer": "1"
 	},
 	{
-		"description": "What is the purpose of the `addEventListener` method in JavaScript?",
+		"id": "4",
+		"description": "What is the purpose of the addEventListener method in JavaScript?",
 		"answers": [
 			{ "id": "1", "opt": "To add a style to an HTML element" },
 			{ "id": "2", "opt": "To attach an event handler function to an HTML element" },
@@ -40,6 +44,7 @@
 		"correctAnswer": "2"
 	},
 	{
+		"id": "5",
 		"description": "How can you prevent the default behavior of an event in JavaScript?",
 		"answers": [
 			{ "id": "1", "opt": "event.stop()" },
@@ -50,7 +55,8 @@
 		"correctAnswer": "3"
 	},
 	{
-		"description": "What is the purpose of the `JSON.stringify` method in JavaScript?",
+		"id": "6",
+		"description": "What is the purpose of the JSON.stringify method in JavaScript?",
 		"answers": [
 			{ "id": "1", "opt": "Parses a JSON string into an object" },
 			{ "id": "2", "opt": "Converts a JavaScript object to a JSON string" },
@@ -60,6 +66,7 @@
 		"correctAnswer": "2"
 	},
 	{
+		"id": "7",
 		"description": "How do you declare a function in JavaScript?",
 		"answers": [
 			{ "id": "1", "opt": "function myFunction() {}" },
@@ -70,7 +77,8 @@
 		"correctAnswer": "4"
 	},
 	{
-		"description": "What does the `this` keyword refer to in JavaScript?",
+		"id": "8",
+		"description": "What does the this keyword refer to in JavaScript?",
 		"answers": [
 			{ "id": "1", "opt": "The current function" },
 			{ "id": "2", "opt": "The global object" },
@@ -80,7 +88,8 @@
 		"correctAnswer": "3"
 	},
 	{
-		"description": "What is the purpose of the `map` function in JavaScript?",
+		"id": "9",
+		"description": "What is the purpose of the map function in JavaScript?",
 		"answers": [
 			{
 				"id": "1",
@@ -93,6 +102,7 @@
 		"correctAnswer": "1"
 	},
 	{
+		"id": "10",
 		"description": "How do you declare a constant variable in JavaScript?",
 		"answers": [
 			{ "id": "1", "opt": "const myVar = 10;" },
@@ -100,6 +110,6 @@
 			{ "id": "3", "opt": "var myVar = 10;" },
 			{ "id": "4", "opt": "constant myVar = 10;" }
 		],
-		"correctAnswer": "10"
+		"correctAnswer": "1"
 	}
 ]

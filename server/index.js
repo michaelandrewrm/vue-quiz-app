@@ -52,6 +52,20 @@ async function createServer() {
 		}
 	});
 
+	app.post('/api/questions', async (req, res) => {
+		const payload = req.body;
+
+		if (payload?.userId && payload?.answers?.length) {
+			const response = await controller.getScore(payload, sequelize);
+
+			if (response) {
+				res.status(200).set('Content-Type', 'application/json').json(response);
+			}
+		}
+
+		res.status(400).send();
+	});
+
 	if (!isPrd) {
 		app.use(viteServer.middlewares);
 	} else {

@@ -10,9 +10,7 @@ export default async function createDataBase() {
 	const questionsData = JSON.parse(questions);
 	const { log } = console;
 
-	const sequelize = new Sequelize({
-		dialect: 'sqlite',
-		storage: './server/db/database.sqlite',
+	const sequelize = new Sequelize('sqlite::memory:', {
 		logging: log,
 	});
 
@@ -41,8 +39,7 @@ export default async function createDataBase() {
 		'Questions',
 		{
 			id: {
-				type: DataTypes.UUID,
-				defaultValue: DataTypes.UUIDV4,
+				type: DataTypes.STRING,
 				primaryKey: true,
 			},
 			description: { type: DataTypes.STRING },
@@ -57,8 +54,29 @@ export default async function createDataBase() {
 		}
 	);
 
+	const Scores = sequelize.define(
+		'Scores',
+		{
+			answers: { type: DataTypes.JSON },
+		},
+		{
+			tableName: 'Scores',
+			createdAt: false,
+			updatedAt: false,
+			timestamps: false,
+		}
+	);
+
+	Users.hasOne(Scores, {
+		foreignKey: {
+			name: 'id',
+		},
+	});
+	Scores.belongsTo(Users);
+
 	await Users.drop();
 	await Questions.drop();
+	await Scores.drop();
 
 	await sequelize.sync();
 
