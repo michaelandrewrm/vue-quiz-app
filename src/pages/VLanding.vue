@@ -88,7 +88,9 @@ onMounted(() => {
 		<section class="section intro">
 			<header class="intro__header">
 				<span class="intro__bg"></span>
-				<h1 class="intro__title">Fast Quiz</h1>
+				<h1 class="intro__title">
+					{{ 'Fast Quiz' }}
+				</h1>
 			</header>
 			<form class="user-data" @submit.prevent="onSubmit">
 				<fieldset class="user-data__fieldset">
@@ -130,7 +132,7 @@ onMounted(() => {
 							:disabled="isActionDisabled"
 							:loading="isLoading"
 						>
-							Start
+							{{ 'Start' }}
 						</CButton>
 					</div>
 				</fieldset>

@@ -2,6 +2,10 @@
 
 <template>
 	<div class="layout-quiz">
+		<div class="layout-quiz__popup">
+			<slot name="popup"></slot>
+		</div>
+
 		<div v-if="$slots.progress" class="layout-quiz__progress">
 			<slot name="progress"></slot>
 		</div>
@@ -23,6 +27,18 @@
 	align-items: center;
 	justify-content: center;
 	background: linear-gradient(to right, #7380ff, #1f2937);
+}
+
+.layout-quiz__popup {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: @z-index-modal;
+	overflow: hidden;
 }
 
 .layout-quiz__container {

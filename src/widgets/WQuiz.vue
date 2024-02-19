@@ -1,11 +1,12 @@
 <script setup>
-import { ref, onServerPrefetch, onMounted, computed } from 'vue';
+import { ref, onServerPrefetch, onMounted, computed, defineEmits } from 'vue';
 import { useQuizStore } from '@/store/quiz';
 import { useSessionStore } from '@/store/session';
 import httpRequest from '@/plugins/httpRequest';
 import CQuizAnswer from '@/components/CQuizAnswer.vue';
 import CButton from '@/components/CButton.vue';
 
+const emit = defineEmits(['score']);
 const quizStore = useQuizStore();
 const sessionStore = useSessionStore();
 const questions = ref(null);
@@ -38,7 +39,11 @@ const postAnswers = () => {
 		},
 	})
 		.then(({ data }) => {
-			console.log(data);
+			emit('score', {
+				score: data?.score,
+				average: data?.average,
+				questionsLength: questions.value.length,
+			});
 		})
 		.catch(() => {});
 };
