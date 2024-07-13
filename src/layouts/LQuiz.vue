@@ -2,11 +2,17 @@
 
 <template>
 	<div class="layout-quiz">
-		<div v-if="$slots.popup" class="layout-quiz__popup">
+		<div
+			v-if="$slots.popup"
+			class="layout-quiz__popup"
+		>
 			<slot name="popup"></slot>
 		</div>
 
-		<div v-if="$slots.progress" class="layout-quiz__progress">
+		<div
+			v-if="$slots.progress"
+			class="layout-quiz__progress"
+		>
 			<slot name="progress"></slot>
 		</div>
 

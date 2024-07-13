@@ -20,12 +20,18 @@ const onScore = (data) => {
 
 <template>
 	<LQuiz>
-		<template v-if="showScoreModal" v-slot:popup>
+		<template
+			v-if="showScoreModal"
+			v-slot:popup
+		>
 			<div class="quiz-modal">
 				<div class="quiz-modal__overlay"></div>
 				<div class="quiz-modal__container">
 					<div class="quiz-modal__document">
-						<MScore :score="score" @close="router.push('/')"></MScore>
+						<MScore
+							:score="score"
+							@close="router.push('/')"
+						/>
 					</div>
 				</div>
 			</div>

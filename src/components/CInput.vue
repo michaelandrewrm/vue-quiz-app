@@ -16,7 +16,10 @@ const classes = computed(() => ({
 </script>
 
 <template>
-	<div class="input" :class="classes">
+	<div
+		class="input"
+		:class="classes"
+	>
 		<input
 			class="input__element text-l-regular"
 			v-model="model"
@@ -24,7 +27,10 @@ const classes = computed(() => ({
 			v-bind="$attrs"
 		/>
 
-		<span v-if="$slots.message" class="input__message text-l-regular">
+		<span
+			v-if="$slots.message"
+			class="input__message text-l-regular"
+		>
 			<slot name="message"></slot>
 		</span>
 	</div>

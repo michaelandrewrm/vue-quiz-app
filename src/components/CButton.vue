@@ -28,7 +28,11 @@ const classes = computed(() => ({
 }));
 </script>
 <template>
-	<button class="button" :class="classes" v-bind="$attrs">
+	<button
+		class="button"
+		:class="classes"
+		v-bind="$attrs"
+	>
 		<CLoadingDots v-if="props.loading" />
 		<slot></slot>
 	</button>

@@ -79,7 +79,10 @@ onMounted(async () => {
 </script>
 
 <template>
-	<div v-if="questions && questions.length && currentQuestion" class="quiz">
+	<div
+		v-if="questions && questions.length && currentQuestion"
+		class="quiz"
+	>
 		<div class="quiz__index">{{ currentIndex }}</div>
 
 		<h1 class="quiz__question text-xl-medium">
@@ -90,8 +93,16 @@ onMounted(async () => {
 
 		<div class="quiz__wrapper">
 			<ul class="quiz__answers">
-				<li class="quiz__answer" v-for="item in currentQuestion.answers" :key="item.id">
-					<CQuizAnswer :id="item.id" v-model="selectedAnswer" :value="item"></CQuizAnswer>
+				<li
+					class="quiz__answer"
+					v-for="item in currentQuestion.answers"
+					:key="item.id"
+				>
+					<CQuizAnswer
+						:id="item.id"
+						v-model="selectedAnswer"
+						:value="item"
+					/>
 				</li>
 			</ul>
 		</div>

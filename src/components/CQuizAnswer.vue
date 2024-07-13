@@ -14,7 +14,10 @@ const classes = computed(() => ({
 </script>
 
 <template>
-	<label class="quiz-answer" :class="classes" tabindex="0">
+	<label
+		class="quiz-answer"
+		:class="classes"
+	>
 		<input
 			class="quiz-answer__radio"
 			type="radio"
@@ -24,10 +27,16 @@ const classes = computed(() => ({
 			tabindex="-1"
 			:checked="checked"
 		/>
-		<span class="quiz-answer__icon text-l-medium" tabindex="-1">
+		<span
+			class="quiz-answer__icon text-l-medium"
+			tabindex="-1"
+		>
 			{{ value.id }}
 		</span>
-		<span v-if="value && value.opt" class="quiz-answer__desc text-l-regular">
+		<span
+			v-if="value && value.opt"
+			class="quiz-answer__desc text-l-regular"
+		>
 			{{ value.opt }}
 		</span>
 	</label>

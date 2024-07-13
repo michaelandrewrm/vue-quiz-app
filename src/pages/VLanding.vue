@@ -76,7 +76,10 @@ onMounted(() => {
 </script>
 
 <template>
-	<div class="landing" ref="page">
+	<div
+		class="landing"
+		ref="page"
+	>
 		<header class="landing__header">
 			<div class="overlay">
 				<div class="parallax">
@@ -96,7 +99,10 @@ onMounted(() => {
 		</header>
 
 		<main class="main-section">
-			<form class="user-form" @submit.prevent="onSubmit">
+			<form
+				class="user-form"
+				@submit.prevent="onSubmit"
+			>
 				<fieldset class="user-form__fieldset">
 					<div class="user-form__form-group">
 						<p class="user-form__legend text-l-regular">
@@ -104,7 +110,10 @@ onMounted(() => {
 						</p>
 					</div>
 
-					<div v-if="!isRegistered" class="user-form__form-group">
+					<div
+						v-if="!isRegistered"
+						class="user-form__form-group"
+					>
 						<CInput
 							v-model="sessionStore.fullname"
 							type="text"

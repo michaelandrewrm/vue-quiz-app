@@ -36,7 +36,7 @@ async function createServer() {
 		if (['Users', 'Questions'].includes(name)) {
 			const response = await controller.get(name, sequelize);
 
-			res.status(200).set('Content-Type', 'application/json').send(response);
+			res.status(200).set('Content-Type', 'application/json; charset=utf-8').send(response);
 		}
 	});
 
@@ -46,7 +46,7 @@ async function createServer() {
 
 		if (user.id) {
 			const response = user.toJSON();
-			res.status(200).set('Content-Type', 'application/json').send(response);
+			res.status(200).set('Content-Type', 'application/json; charset=utf-8').send(response);
 		} else {
 			res.status(400).send();
 		}
@@ -59,7 +59,7 @@ async function createServer() {
 			const response = await controller.getScore(payload, sequelize);
 
 			if (response) {
-				res.status(200).set('Content-Type', 'application/json').json(response);
+				res.status(200).set('Content-Type', 'application/json; charset=utf-8').json(response);
 			}
 		}
 

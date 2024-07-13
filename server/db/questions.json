@@ -37,7 +37,10 @@
 		"description": "What is the purpose of the addEventListener method in JavaScript?",
 		"answers": [
 			{ "id": "1", "opt": "To add a style to an HTML element" },
-			{ "id": "2", "opt": "To attach an event handler function to an HTML element" },
+			{
+				"id": "2",
+				"opt": "To attach an event handler function to an HTML element"
+			},
 			{ "id": "3", "opt": "To create a new HTML element" },
 			{ "id": "4", "opt": "To remove an HTML element from the DOM" }
 		],

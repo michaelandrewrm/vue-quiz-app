@@ -22,19 +22,31 @@ const averageText = computed(() =>
 	<div class="score-modal__content">
 		<div class="score-modal__header">
 			<div class="score-modal__confetti"></div>
-			<h1 class="score-modal__title text-xxl-bold">{{ 'Congratulations!!!' }}</h1>
+			<h1 class="score-modal__title text-xxl-bold">
+				{{ 'Congratulations!!!' }}
+			</h1>
 		</div>
 		<article class="score-modal__desc">
-			<div v-if="scoreText" class="score-modal__score text-xxl-bold">
+			<div
+				v-if="scoreText"
+				class="score-modal__score text-xxl-bold"
+			>
 				{{ scoreText }}
 			</div>
 
-			<div v-if="averageText" class="score-modal__average text-l-regular">
+			<div
+				v-if="averageText"
+				class="score-modal__average text-l-regular"
+			>
 				{{ averageText }}
 			</div>
 		</article>
 		<div class="score-modal__action">
-			<CButton secondary large @click="emit('close')">
+			<CButton
+				secondary
+				large
+				@click="emit('close')"
+			>
 				{{ 'Accept' }}
 			</CButton>
 		</div>
