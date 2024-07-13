@@ -19,23 +19,23 @@ docker run -dp 127.0.0.1:5173:5173 vue-quiz-app
 ## Project Setup
 
 ```sh
-npm install
+pnpm install
 ```
 
 ### Compile and Hot-Reload for Development
 
 ```sh
-npm run dev
+pnpm dev
 ```
 
 ### Compile and Minify for Production
 
 ```sh
-npm run build
+pnpm build
 ```
 
 ### Compile for Development
 
 ```sh
-npm run preview
+pnpm preview
 ```
